@@ -35,7 +35,7 @@ namespace Shared.Data
                 await seeder.SeedAllAsync();
             }
 
-            throw new NotImplementedException();
+      
         }
 
     }
