@@ -7,7 +7,7 @@ namespace Catalog.Products.Features.CreateProduct
         : ICommand<CreateProductResult>;
     public record CreateProductResult(Guid Id);
     //represent bussiness logic ,sqrs
-    public class CreateProductHandle(CatalogDBContext dBContext) : ICommandHandler<CreateProductCommand, CreateProductResult>
+    public class CreateProductHandler(CatalogDBContext dBContext) : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
         public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
