@@ -5,7 +5,7 @@
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapDelete("/products", async (ISender sender) =>
+            app.MapGet("/products", async (ISender sender) =>
             {
 
                 var result = await sender.Send(new GetProductsQuery());
