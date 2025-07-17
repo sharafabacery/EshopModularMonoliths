@@ -1,5 +1,4 @@
-﻿global using System.Reflection;
-global using Carter;
+﻿global using Carter;
 global using Catalog.Data;
 global using Catalog.Products.Dtos;
 global using Catalog.Products.Events;
@@ -17,6 +16,8 @@ global using Shared.CQRS;
 global using Shared.Data;
 global using Shared.Data.Seed;
 global using Shared.DDD;
+global using Shared.Pagination;
+global using System.Reflection;
 
 
 

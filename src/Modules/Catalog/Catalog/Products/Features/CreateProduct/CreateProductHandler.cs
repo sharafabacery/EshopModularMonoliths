@@ -15,12 +15,11 @@
         }
     }
     //represent bussiness logic ,sqrs
-    internal class CreateProductHandler(CatalogDBContext dBContext, ILogger<CreateProductHandler> logger) : ICommandHandler<CreateProductCommand, CreateProductResult>
+    internal class CreateProductHandler(CatalogDBContext dBContext) : ICommandHandler<CreateProductCommand, CreateProductResult>
     {
         public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
 
-            logger.LogInformation("CreateProductHandler.Handle called with {@coomand}", command);
 
             var product = CreateNewProduct(command.Product);
 

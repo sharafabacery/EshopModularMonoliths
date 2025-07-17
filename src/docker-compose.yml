@@ -3,6 +3,8 @@ services:
   eshopdb:
     image: postgres
     restart: always
+  seq:
+    image: datalust/seq:latest
     # set shared memory limit when using docker compose
     # or set shared memory limit when deploy via swarm stack
     #volumes:
