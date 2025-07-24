@@ -3,7 +3,7 @@
     public class CatalogDBContext : DbContext
     {
         public DbSet<Product> Products => Set<Product>();
-        public CatalogDBContext(DbContextOptions options) : base(options)
+        public CatalogDBContext(DbContextOptions<CatalogDBContext> options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder builder)
@@ -11,7 +11,7 @@
             builder.HasDefaultSchema("catalog");
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(builder);
-            
+
         }
 
     }
