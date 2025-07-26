@@ -1,7 +1,7 @@
 ﻿namespace Basket.Basket.Features.AddItemIntoBasket
 {
     public record AddItemIntoBasketCommand(string UserName, ShoppingCartItemDto ShoppingCartItem) : ICommand<AddItemIntoBasketResult>;
-    public record AddItemIntoBasketResult(Guid id);
+    public record AddItemIntoBasketResult(Guid Id);
     public class AddItemIntoBasketCommandValidator : AbstractValidator<AddItemIntoBasketCommand>
     {
         public AddItemIntoBasketCommandValidator()
@@ -16,7 +16,7 @@
     {
         public async Task<AddItemIntoBasketResult> Handle(AddItemIntoBasketCommand command, CancellationToken cancellationToken)
         {
-            var basket = await dBContext.ShoppingCarts.AsNoTracking().Include(x => x.Items).SingleOrDefaultAsync(x => x.UserName == command.UserName);
+            var basket = await dBContext.ShoppingCarts.Include(x => x.Items).SingleOrDefaultAsync(x => x.UserName == command.UserName);
             if (basket == null)
             {
                 throw new BasketNotFoundException(command.UserName);

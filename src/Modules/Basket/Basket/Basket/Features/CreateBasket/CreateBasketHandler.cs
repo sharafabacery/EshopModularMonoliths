@@ -1,13 +1,13 @@
 ﻿namespace Basket.Basket.Features.CreateBasket
 {
-    public record CreateBasketCommand(ShoppingCartDto ShoppingCartDto) : ICommand<CreateBasketResult>;
+    public record CreateBasketCommand(ShoppingCartDto ShoppingCart) : ICommand<CreateBasketResult>;
 
-    public record CreateBasketResult(Guid id);
+    public record CreateBasketResult(Guid Id);
     public class CreateBasketCommandValidator : AbstractValidator<CreateBasketCommand>
     {
         public CreateBasketCommandValidator()
         {
-            RuleFor(x => x.ShoppingCartDto.Username).NotEmpty().WithMessage("UserName is Required");
+            RuleFor(x => x.ShoppingCart.UserName).NotEmpty().WithMessage("UserName is Required");
 
         }
     }
@@ -15,7 +15,7 @@
     {
         public async Task<CreateBasketResult> Handle(CreateBasketCommand command, CancellationToken cancellationToken)
         {
-            var shoppingCart = CreateNewBasket(command.ShoppingCartDto);
+            var shoppingCart = CreateNewBasket(command.ShoppingCart);
 
             dBContext.ShoppingCarts.Add(shoppingCart);
 
@@ -27,7 +27,7 @@
         private ShoppingCart CreateNewBasket(ShoppingCartDto shoppingCartDto)
         {
 
-            var newBasket = ShoppingCart.Create(shoppingCartDto.Id, shoppingCartDto.Username);
+            var newBasket = ShoppingCart.Create(Guid.NewGuid(), shoppingCartDto.UserName);
             shoppingCartDto.Items.ForEach(item =>
             {
                 newBasket.AddItem(item.ProductId, item.Quantity, item.Color, item.Price, item.ProductName);
