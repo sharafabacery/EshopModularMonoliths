@@ -3,6 +3,7 @@ global using Basket.Basket.Data;
 global using Basket.Basket.Dtos;
 global using Basket.Basket.Exceptions;
 global using Basket.Basket.Models;
+global using Basket.Basket.Repository;
 global using Carter;
 global using FluentValidation;
 global using Mapster;

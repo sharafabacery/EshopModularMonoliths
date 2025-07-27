@@ -11,15 +11,13 @@
 
         }
     }
-    public class CreateBasketHandler(BasketDBContext dBContext) : ICommandHandler<CreateBasketCommand, CreateBasketResult>
+    public class CreateBasketHandler(IBasketRepository basketRepository) : ICommandHandler<CreateBasketCommand, CreateBasketResult>
     {
         public async Task<CreateBasketResult> Handle(CreateBasketCommand command, CancellationToken cancellationToken)
         {
             var shoppingCart = CreateNewBasket(command.ShoppingCart);
 
-            dBContext.ShoppingCarts.Add(shoppingCart);
-
-            await dBContext.SaveChangesAsync(cancellationToken);
+            await basketRepository.CreateBasket(shoppingCart);
 
             return new CreateBasketResult(shoppingCart.Id);
         }

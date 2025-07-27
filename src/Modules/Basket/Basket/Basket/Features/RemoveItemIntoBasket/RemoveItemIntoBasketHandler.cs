@@ -11,17 +11,13 @@
 
         }
     }
-    public class RemoveItemIntoBasketHandler(BasketDBContext dBContext) : ICommandHandler<RemoveItemIntoBasketCommand, RemoveItemIntoBasketResult>
+    public class RemoveItemIntoBasketHandler(IBasketRepository basketRepository) : ICommandHandler<RemoveItemIntoBasketCommand, RemoveItemIntoBasketResult>
     {
         public async Task<RemoveItemIntoBasketResult> Handle(RemoveItemIntoBasketCommand command, CancellationToken cancellationToken)
         {
-            var basket = await dBContext.ShoppingCarts.Include(x => x.Items).SingleOrDefaultAsync(x => x.UserName == command.UserName);
-            if (basket == null)
-            {
-                throw new BasketNotFoundException(command.UserName);
-            }
+            var basket = await basketRepository.GetBasket(command.UserName, false, cancellationToken);
             basket.RemoveItem(command.ProductId);
-            await dBContext.SaveChangesAsync(cancellationToken);
+            await basketRepository.SaveChangesAsync();
 
             return new RemoveItemIntoBasketResult(basket.Id);
         }
