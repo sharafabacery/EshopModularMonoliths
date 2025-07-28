@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json.Serialization;
+
 namespace Basket.Basket.Models
 {
     public class ShoppingCartItem : Entity<Guid>
@@ -12,6 +14,18 @@ namespace Basket.Basket.Models
 
         internal ShoppingCartItem(Guid ShoppingCartId, Guid ProductId, int Quantity, string Color, decimal Price, string ProductName)
         {
+            this.ShoppingCartId = ShoppingCartId;
+            this.ProductId = ProductId;
+            this.Quantity = Quantity;
+            this.Color = Color;
+            this.Price = Price;
+            this.ProductName = ProductName;
+
+        }
+        [JsonConstructor]
+        public ShoppingCartItem(Guid Id, Guid ShoppingCartId, Guid ProductId, int Quantity, string Color, decimal Price, string ProductName)
+        {
+            this.Id = Id;
             this.ShoppingCartId = ShoppingCartId;
             this.ProductId = ProductId;
             this.Quantity = Quantity;

@@ -3,6 +3,10 @@ services:
   eshopdb:
     image: postgres
     restart: always
+
+  distributedCache:
+    image: redis
+
   seq:
     image: datalust/seq:latest
     # set shared memory limit when using docker compose

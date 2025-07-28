@@ -10,11 +10,16 @@ services:
       - "5432:5432"
     volumes:
       - postgres_eshopdb:/var/lib/postgresql/data/
- 
+  
+  distributedCache:
+    container_name: distributedCache
+    restart: always
+    ports:
+       - "6379:6379"
   seq:
     container_name: seq
     environment:
-        - Accept_EULA=Y
+        - ACCEPT_EULA=Y
     restart: always
     ports:
         - "5341:5341"
