@@ -4,6 +4,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+});
 
 var catalogAssembly = typeof(CatalogModule).Assembly;
 var basketAssembly = typeof(BasketModule).Assembly;
@@ -13,10 +17,7 @@ builder.Services
 
 builder.Services.AddMediatWithAssemblies(catalogAssembly, basketAssembly);
 
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration.GetConnectionString("Redis");
-});
+
 
 builder.Services
         .AddCatalogModule(builder.Configuration)

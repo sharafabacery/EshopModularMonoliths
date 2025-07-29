@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapper", "Bootstrapper", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{3E45DE19-F320-49C8-9AB6-E56B15D8DD94}"
+	ProjectSection(SolutionItems) = preProject
+		Bootstrapper\Api\Program.cs = Bootstrapper\Api\Program.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9ADF83F2-91A5-481B-BF7F-561FFD381031}"
 EndProject

@@ -20,6 +20,7 @@ services:
     container_name: seq
     environment:
         - ACCEPT_EULA=Y
+        - SEQ_FIRSTRUN_NOAUTHENTICATION=true
     restart: always
     ports:
         - "5341:5341"

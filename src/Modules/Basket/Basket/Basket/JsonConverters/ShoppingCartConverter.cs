@@ -20,7 +20,7 @@ namespace Basket.Basket.JsonConverters
 
             if (items != null)
             {
-                var itemsField = typeof(ShoppingCart).GetField("_items", BindingFlags.NonPublic);
+                var itemsField = typeof(ShoppingCart).GetField("_items", BindingFlags.NonPublic | BindingFlags.Instance);
                 itemsField?.SetValue(shoppingCart, items);
             }
 
