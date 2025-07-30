@@ -1,10 +1,8 @@
-﻿using Catalog.Products.Exceptions;
+﻿
+using Catalog.Products.Exceptions;
 
 namespace Catalog.Products.Features.GetProductById
 {
-    public record GetProductByIdQuery(Guid ProductId)
-: IQuery<GetProductByIdResult>;
-    public record GetProductByIdResult(ProductDto Product);
     public class GetProductByIdHandler(CatalogDBContext dBContext) : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
     {
         public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)

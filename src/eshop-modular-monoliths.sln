@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapper", "Bootstrapper", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{3E45DE19-F320-49C8-9AB6-E56B15D8DD94}"
-	ProjectSection(SolutionItems) = preProject
-		Bootstrapper\Api\Program.cs = Bootstrapper\Api\Program.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9ADF83F2-91A5-481B-BF7F-561FFD381031}"
 EndProject
@@ -35,6 +32,10 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 	ProjectSection(ProjectDependencies) = postProject
 		{BF518F16-9491-4C95-BF49-D0251DDF64F1} = {BF518F16-9491-4C95-BF49-D0251DDF64F1}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Contracts", "Modules\Catalog\Catalog.Contracts\Catalog.Contracts.csproj", "{4CA7C536-E163-4238-84D4-DF1B4F32894B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Contracts", "Shared\Shared.Contracts\Shared.Contracts.csproj", "{8D6D7916-AE9D-43EA-97B9-54E9F75DE7A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +67,14 @@ Global
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CA7C536-E163-4238-84D4-DF1B4F32894B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA7C536-E163-4238-84D4-DF1B4F32894B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA7C536-E163-4238-84D4-DF1B4F32894B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA7C536-E163-4238-84D4-DF1B4F32894B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6D7916-AE9D-43EA-97B9-54E9F75DE7A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6D7916-AE9D-43EA-97B9-54E9F75DE7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6D7916-AE9D-43EA-97B9-54E9F75DE7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6D7916-AE9D-43EA-97B9-54E9F75DE7A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +88,8 @@ Global
 		{23746718-1FB1-453B-8AC4-A89DA39A4421} = {3E58DB57-102B-484C-B8FC-9DB815AA128C}
 		{38D2B971-EAD2-4F06-930D-D601B2CF16F8} = {C4181827-F57D-43E5-B0C4-61ED59953BCE}
 		{8D68F171-2DF9-4A44-A489-15C5790F487A} = {9ADF83F2-91A5-481B-BF7F-561FFD381031}
+		{4CA7C536-E163-4238-84D4-DF1B4F32894B} = {826F2217-E85E-45F6-86CB-EB537B845E05}
+		{8D6D7916-AE9D-43EA-97B9-54E9F75DE7A6} = {9ADF83F2-91A5-481B-BF7F-561FFD381031}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67111E0B-C9EE-48B7-8FDA-828AAA56AADA}

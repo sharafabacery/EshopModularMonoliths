@@ -1,5 +1,4 @@
-﻿global using System.Reflection;
-global using Basket.Basket.Data;
+﻿global using Basket.Basket.Data;
 global using Basket.Basket.Dtos;
 global using Basket.Basket.Exceptions;
 global using Basket.Basket.Models;
@@ -14,6 +13,7 @@ global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Routing;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
-global using Shared.CQRS;
+global using Shared.Contracts.CQRS;
 global using Shared.Data;
 global using Shared.DDD;
+global using System.Reflection;
