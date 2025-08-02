@@ -9,6 +9,8 @@ services:
 
   seq:
     image: datalust/seq:latest
+  messagebus:
+    image: rabbitmq:management
     # set shared memory limit when using docker compose
     # or set shared memory limit when deploy via swarm stack
     #volumes:
