@@ -24,7 +24,18 @@ namespace Ordering.Orders.Data.Configurations
                 addressBuilder.Property(x => x.State).HasMaxLength(50);
                 addressBuilder.Property(x => x.ZipCode).HasMaxLength(5).IsRequired();
 
-            }).HasNoKey();
+            });
+            builder.ComplexProperty(o => o.BillingAddress, addressBuilder =>
+            {
+                addressBuilder.Property(x => x.FirstName).HasMaxLength(50).IsRequired();
+                addressBuilder.Property(x => x.LastName).HasMaxLength(50).IsRequired();
+                addressBuilder.Property(x => x.EmailAddress).HasMaxLength(50);
+                addressBuilder.Property(x => x.AddressLine).HasMaxLength(180).IsRequired();
+                addressBuilder.Property(x => x.Country).HasMaxLength(50);
+                addressBuilder.Property(x => x.State).HasMaxLength(50);
+                addressBuilder.Property(x => x.ZipCode).HasMaxLength(5).IsRequired();
+
+            });
             builder.ComplexProperty(o => o.Payment, paymentBuilder =>
             {
                 paymentBuilder.Property(x => x.CardNumber).HasMaxLength(50).IsRequired();
@@ -33,7 +44,7 @@ namespace Ordering.Orders.Data.Configurations
                 paymentBuilder.Property(x => x.CVV).HasMaxLength(3);
                 paymentBuilder.Property(x => x.PaymentMethod);
 
-            }).HasNoKey();
+            });
         }
     }
 }
