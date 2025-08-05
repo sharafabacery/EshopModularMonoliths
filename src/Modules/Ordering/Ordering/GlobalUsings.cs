@@ -1,0 +1,11 @@
+﻿global using System.Reflection;
+global using MediatR;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.Logging;
+global using Ordering.Orders.Events;
+global using Ordering.Orders.Models;
+global using Ordering.Orders.ValueObjects;
+global using Shared.Data;
+global using Shared.DDD;
