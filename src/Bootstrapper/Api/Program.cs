@@ -1,4 +1,6 @@
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
@@ -18,6 +20,9 @@ builder.Services.AddMediatWithAssemblies(catalogAssembly, basketAssembly);
 
 builder.Services.AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly);
 
+builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
+builder.Services.AddAuthorization();
+
 builder.Services
         .AddCatalogModule(builder.Configuration)
         .AddBasketModule(builder.Configuration)
@@ -27,10 +32,13 @@ builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 var app = builder.Build();
 
+
 app.MapCarter();
 app.UseSerilogRequestLogging();
 app.UseExceptionHandler(options => { });
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseCatalogModule()
    .UseBasketModule()

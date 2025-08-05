@@ -21,7 +21,8 @@ namespace Basket.Basket.Features.RemoveItemIntoBasket
              .ProducesProblem(StatusCodes.Status400BadRequest)
              .ProducesProblem(StatusCodes.Status404NotFound)
              .WithSummary("RemoveItemIntoBasket")
-             .WithDescription("RemoveItemIntoBasket");
+             .WithDescription("RemoveItemIntoBasket")
+             .RequireAuthorization();
         }
     }
 }

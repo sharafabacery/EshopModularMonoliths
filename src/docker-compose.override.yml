@@ -43,7 +43,7 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
       - KC_DB=postgres
-      - KC_DB_URL=jdbc:postgresql://eshop/EShop?currentSchema=identity
+      - KC_DB_URL=jdbc:postgresql://eshopdb/EShopDb?currentSchema=identity
       - KC_DB_USERNAME=postgres
       - KC_DB_PASSWORD=postgres
     restart: always

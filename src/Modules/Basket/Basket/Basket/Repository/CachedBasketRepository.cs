@@ -1,8 +1,8 @@
 ﻿
-using Basket.Basket.JsonConverters;
-using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Basket.Basket.JsonConverters;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Basket.Basket.Repository
 {
@@ -17,7 +17,7 @@ namespace Basket.Basket.Repository
         public async Task<ShoppingCart> CreateBasket(ShoppingCart basket, CancellationToken cancellationToken = default)
         {
             await basketRepository.CreateBasket(basket, cancellationToken);
-            await cache.SetStringAsync(basket.UserName, JsonSerializer.Serialize(basket), cancellationToken);
+            await cache.SetStringAsync(basket.UserName, JsonSerializer.Serialize(basket, _options), cancellationToken);
             return basket;
         }
 
