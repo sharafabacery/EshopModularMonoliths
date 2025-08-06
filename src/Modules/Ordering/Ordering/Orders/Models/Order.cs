@@ -19,7 +19,7 @@ namespace Ordering.Orders.Models
             order.AddDomainEvent(new OrderCreatedEvent(order));
             return order;
         }
-        public void AddItem(Guid productId, int quantity, string color, decimal price, string productName)
+        public void AddItem(Guid productId, int quantity, decimal price)
         {
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(quantity);
             ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);

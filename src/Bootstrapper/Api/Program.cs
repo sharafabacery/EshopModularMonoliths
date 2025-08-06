@@ -12,13 +12,14 @@ builder.Services.AddStackExchangeRedisCache(options =>
 
 var catalogAssembly = typeof(CatalogModule).Assembly;
 var basketAssembly = typeof(BasketModule).Assembly;
+var orderAssembly = typeof(OrderingModule).Assembly;
 
 builder.Services
-        .AddCarterWithAssemblies(catalogAssembly, basketAssembly);
+        .AddCarterWithAssemblies(catalogAssembly, basketAssembly, orderAssembly);
 
-builder.Services.AddMediatWithAssemblies(catalogAssembly, basketAssembly);
+builder.Services.AddMediatWithAssemblies(catalogAssembly, basketAssembly, orderAssembly);
 
-builder.Services.AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly);
+builder.Services.AddMassTransitWithAssemblies(builder.Configuration, catalogAssembly, basketAssembly, orderAssembly);
 
 builder.Services.AddKeycloakWebApiAuthentication(builder.Configuration);
 builder.Services.AddAuthorization();
