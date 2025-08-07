@@ -1,4 +1,5 @@
-﻿global using Carter;
+﻿global using System.Reflection;
+global using Carter;
 global using FluentValidation;
 global using Mapster;
 global using MediatR;
@@ -15,6 +16,6 @@ global using Ordering.Orders.Exceptions;
 global using Ordering.Orders.Models;
 global using Ordering.Orders.ValueObjects;
 global using Shared.Contracts.CQRS;
+global using Shared.Data;
 global using Shared.DDD;
 global using Shared.Pagination;
-global using System.Reflection;

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Basket.Basket.Data.Processors;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Data.Interceptors;
@@ -24,6 +25,7 @@ namespace Basket
 
                 options.UseNpgsql(connectionString);
             });
+            services.AddHostedService<OutboxProcessor>();
             return services;
         }
         public static IApplicationBuilder UseBasketModule(this IApplicationBuilder app)

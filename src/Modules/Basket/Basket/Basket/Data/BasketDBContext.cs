@@ -6,6 +6,7 @@ namespace Basket.Basket.Data
     {
         public DbSet<ShoppingCart> ShoppingCarts => Set<ShoppingCart>();
         public DbSet<ShoppingCartItem> ShoppingCartItems => Set<ShoppingCartItem>();
+        public DbSet<OutBoxMessage> OutBoxMessages => Set<OutBoxMessage>();
         public BasketDBContext(DbContextOptions<BasketDBContext> options) : base(options)
         {
         }
