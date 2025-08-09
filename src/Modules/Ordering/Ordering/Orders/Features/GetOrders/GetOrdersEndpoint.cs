@@ -1,6 +1,6 @@
 ﻿namespace Ordering.Orders.Features.GetOrders
 {
-    public record GetOrdersResponse(PaginatedResult<OrderDto> Products);
+    public record GetOrdersResponse(PaginatedResult<OrderDto> Orders);
     public class GetOrdersEndpoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
