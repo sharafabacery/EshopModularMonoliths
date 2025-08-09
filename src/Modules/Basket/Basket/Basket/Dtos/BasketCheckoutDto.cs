@@ -16,6 +16,6 @@
         string CardName,
         string Expiration,
         string Cvv,
-        string PaymentMethod
+        int PaymentMethod
     );
 }

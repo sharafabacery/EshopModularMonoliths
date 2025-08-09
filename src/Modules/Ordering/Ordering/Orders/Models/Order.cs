@@ -15,7 +15,7 @@ namespace Ordering.Orders.Models
 
         public static Order Create(Guid id, Guid customerId, string orderName, Address shippingAddress, Address billingAddress, Payment payment)
         {
-            var order = new Order() { Id = id, CustomerId = customerId, ShippingAddress = shippingAddress, BillingAddress = billingAddress, Payment = payment };
+            var order = new Order() { Id = id, CustomerId = customerId, OrderName = orderName, ShippingAddress = shippingAddress, BillingAddress = billingAddress, Payment = payment };
             order.AddDomainEvent(new OrderCreatedEvent(order));
             return order;
         }
